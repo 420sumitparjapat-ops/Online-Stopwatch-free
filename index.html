@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clock • Stopwatch • Timer • Alarm</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light">
+
+<header>
+  <h1>Time Tools</h1>
+  <div class="controls">
+    <button id="themeToggle">🌙</button>
+    <button id="muteToggle">🔊</button>
+  </div>
+</header>
+
+<nav>
+  <button class="tab active" data-tab="clock">⏰ Clock</button>
+  <button class="tab" data-tab="stopwatch">⏱ Stopwatch</button>
+  <button class="tab" data-tab="timer">⏲ Timer</button>
+  <button class="tab" data-tab="alarm">🔔 Alarm</button>
+</nav>
+
+<main>
+
+<!-- CLOCK -->
+<section id="clock" class="tab-content active">
+  <div class="big-text" id="clockTime">00:00:00</div>
+  <div id="clockDate"></div>
+  <button id="formatToggle">Switch 12/24</button>
+</section>
+
+<!-- STOPWATCH -->
+<section id="stopwatch" class="tab-content">
+  <div class="big-text" id="swDisplay">00:00:00.000</div>
+  <div class="btn-group">
+    <button onclick="swStart()">Start</button>
+    <button onclick="swPause()">Pause</button>
+    <button onclick="swReset()">Reset</button>
+    <button onclick="swLap()">Lap</button>
+  </div>
+  <ul id="laps"></ul>
+</section>
+
+<!-- TIMER -->
+<section id="timer" class="tab-content">
+  <div class="timer-inputs">
+    <input type="number" id="tH" placeholder="HH" min="0">
+    <input type="number" id="tM" placeholder="MM" min="0" max="59">
+    <input type="number" id="tS" placeholder="SS" min="0" max="59">
+  </div>
+  <div class="big-text" id="timerDisplay">00:00:00</div>
+  <div class="btn-group">
+    <button onclick="timerStart()">Start</button>
+    <button onclick="timerPause()">Pause</button>
+    <button onclick="timerReset()">Reset</button>
+  </div>
+</section>
+
+<!-- ALARM -->
+<section id="alarm" class="tab-content">
+  <input type="time" id="alarmTime">
+  <button onclick="addAlarm()">Add Alarm</button>
+  <ul id="alarmList"></ul>
+</section>
+
+</main>
+
+<!-- AUDIO -->
+<audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+<audio id="timerSound" src="https://assets.mixkit.co/active_storage/sfx/1658/1658-preview.mp3"></audio>
+<audio id="alarmSound" src="https://assets.mixkit.co/active_storage/sfx/2762/2762-preview.mp3" loop></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
